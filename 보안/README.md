@@ -1,33 +1,29 @@
-next js
+HTTP(Hypertext Transfer Protocol)
+HTTPS(Hypertext Transfer Protocol Secure)
+SSL(Secure Sockets Layer)
+= 웹에서 데이터를 안전하게 전송하기 위한 프로토콜 및 보안 기술.
 
-기능
-1. 라우팅: 서버 컴포넌트 위에 구축된 파일 시스템 기반 라우터로 레이아웃, 중첩 라우팅, 로딩 상태, 오류 처리 지원
-2. 렌더링: 클라이언트 측 및 서버 측 렌더링을 클라이언트 및 서버 컴포넌트로 지원
-3. 스타일링: CSS 모듈, Tailwind CSS, CSS-in-JS를 비롯한 선호하는 스타일링 방법을 지원
-5. 데이터검색: 
-6. 최적화: 이미지, 글꼴 및 스크립트 최적화를 통해 응용 프로그램의 핵심 웹 비탈 및 사용자 경험을 개선
-7. 타입스크립트: 
+HTTP (Hypertext Transfer Protocol):
 
-라우터 방식
+HTTP는 웹 브라우저와 웹 서버 간에 데이터를 전송하는 데 사용되는 프로토콜.
+일반 텍스트로 통신하므로 데이터는 평문으로 전송되며, 보안성이 낮음.
+예시: 사용자가 웹 브라우저에 "http://www.example.com"을 입력하면, 브라우저는 해당 서버로 HTTP 요청을 보내고, 서버는 요청된 데이터를 평문으로 응답.
 
-앱 라우터: 
-페이지 라우터: 
+SSL (Secure Sockets Layer):
 
+SSL은 네트워크 연결을 보호하기 위한 프로토콜.
+SSL은 데이터를 암호화하여 중간에 있는 공격자가 데이터를 엿보거나 조작하지 못하도록 보호.
+클라이언트와 서버 간의 통신을 안전하게 만들기 위해 사용.
+HTTPS (Hypertext Transfer Protocol Secure):
 
+HTTPS는 HTTP의 보안 버전으로, SSL을 사용하여 데이터를 암호화하고 안전한 통신을 제공.
+HTTPS는 URL이 "https://"로 시작하며, 보통 로그인 페이지, 결제 페이지, 개인 정보 전송 등에서 사용.
+예시: 사용자가 "https://www.example.com"을 입력하면, 브라우저는 해당 서버로 안전한 HTTP 요청을 보내고, 서버는 안전한 방식으로 응답.
 
-page.js: 특정 라우트에 고유한 UI 
-layout.js: 여러 페이지 간에 공유되는 UI
-special.js: React Suspense를 활용하여 의미 있는 로딩 UI를 생성
-error.js: 파일 규칙을 사용하면 중첩된 경로에서 런타임 오류를 우아하게 처리할 수 있음
+Handshake (악수): 클라이언트가 서버에 접속하면, SSL 핸드셰이크가 발생, 이 단계에서 서버는 공개키와 인증서를 클라이언트에게 제공.
 
-Linking & Navigating
+암호화: 클라이언트는 서버의 공개키를 사용하여 세션 키를 생성하고, 이 세션 키를 서버의 공개키로 암호화하여 서버에게 전송합니다.
 
-Next.js App Router의 기본 동작은 새로운 라우트로 스크롤하거나 뒤로 및 앞으로 탐색할 때 스크롤 위치를 유지하는 것입니다. 이 동작을 비활성화하고 싶다면, <Link> 컴포넌트에 scroll={false}를 전달하거나, router.push() 또는 router.replace()에 scroll: false를 전달할 수 있습니다.
+데이터 전송: 이제 세션 키를 양쪽에서 사용하여 데이터를 암호화하고 복호화할 수 있습니다. 클라이언트와 서버 간의 모든 통신은 이 세션 키를 사용하여 보호됩니다.
 
-CSR
-
-스트리밍은 페이지 렌더링을 차단하는 긴 데이터 요청을 방지하고 Time To First Byte (TTFB) 및 First Contentful Paint (FCP)를 줄일 수 있어 특히 유용합니다. 또한 느린 기기에서 특히 Time to Interactive (TTI)를 개선하는 데 도움이 됩니다.
-
-서스펜스
--> SSR이더라도 많은 데이터를 불러오면 느려짐
--> <Suspense>태그로 데이터를 불러오는 컴포넌트를 감싸고 대체 ui를 표시할 수 있음
+이러한 과정을 통해 HTTPS는 안전한 통신을 제공하여 중요한 정보를 안전하게 전송할 수 있도록 합니다.
